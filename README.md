@@ -3,13 +3,26 @@
 ## Патчинг документа 
 
 1) Импортировать sql файл в Вашу БД
-2) Настроить в файле web.php - config следующим обрзом:
+2) Настроить файл в web.php - config следующим обрзом:
 
 ``` php
 'parsers' => [
 	        	'application/json' => 'yii\web\JsonParser',
 	        ]
-``` 
+```
+
+Добавить следующее в config:
+
+``` php	      
+  
+'modules' => [
+	    'api' => [
+		    'class' => 'app\modules\api\Api',
+	    ],
+    ],	        
+	        
+``` 	   
+     
  А также  urlManager:
  
  ``` php
@@ -29,4 +42,8 @@
             ],
         ],
 	
-```	
+```		     
+
+ 3) Поместить в models файл Employee.php - модель Active Record -таблица employee
+ 
+  4) Поместить models в корень вашего приложения, если папка models создана, то из папки models на github поместить содержимое в нее.
